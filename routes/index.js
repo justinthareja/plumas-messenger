@@ -16,7 +16,7 @@ router.post("/sms", (req, res) => {
 
   if (body.toLowerCase() === "map") {
     message.body("Thanks for your inquiry! Here's a map to the yoga studio:");
-    message.media("/images/yoga_map.png");
+    message.media("/images/yoga_map.jpg");
   } else {
     message.body(`Unrecognized request. Try "map"`);
   }

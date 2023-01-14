@@ -10,7 +10,7 @@ var { MessagingResponse } = require("twilio").twiml;
 router.post("/reply", (req, res) => {
   const twiml = new MessagingResponse();
   const message = twiml.message();
-  const body = req.body.Body.toLowerCase();
+  const body = req.body.Body.toLowerCase().trim();
 
   if (body === "map") {
     message.body("Thanks for your interest! Here's a map to the yoga studio.");

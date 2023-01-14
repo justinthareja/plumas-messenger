@@ -9,7 +9,6 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/sms", (req, res) => {
-  const smsCount = req.session.counter || 0;
   const body = req.body.Body;
 
   const twiml = new MessagingResponse();
@@ -20,10 +19,8 @@ router.post("/sms", (req, res) => {
       "https://plumascounty.org/wp-content/uploads/2022/04/Plumas-County-with-regions-1024x1024.jpg"
     );
   } else {
-    message.body(`This is your ${smsCount} request`);
+    message.body(`Unrecognized request. Try "map"`);
   }
-
-  req.session.counter = smsCount + 1;
 
   res.type("text/xml").send(twiml.toString());
 });

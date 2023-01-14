@@ -15,9 +15,8 @@ router.post("/sms", (req, res) => {
   const message = twiml.message();
 
   if (body.toLowerCase() === "map") {
-    message.media(
-      "https://plumascounty.org/wp-content/uploads/2022/04/Plumas-County-with-regions-1024x1024.jpg"
-    );
+    message.body("Thanks for your inquiry! Here's a map to the yoga studio:");
+    message.media("/images/yoga_map.png");
   } else {
     message.body(`Unrecognized request. Try "map"`);
   }

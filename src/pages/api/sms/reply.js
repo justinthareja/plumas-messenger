@@ -26,6 +26,7 @@ export default function handler(req, res) {
       .status(200)
       .send(twiml.toString());
   } else {
-    res.status(404).send();
+    res.setHeader("Allow", "POST");
+    res.status(405).json({ error: "Idk what to do unless you POST" });
   }
 }
